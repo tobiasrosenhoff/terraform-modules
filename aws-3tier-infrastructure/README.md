@@ -7,12 +7,12 @@ Terraform module to create a base VPC network
 
 ```
 module "aws-3tier-infrastructure" {
-  source = "git::git@github.com:StenaIT/ops-infrastructure-modules.git//aws-3tier-infrastructure?ref=v1.0.1"
+  source = "git::git@github.com:tobiasrosenhoff/terraform-modules.git//aws-3tier-infrastructure?ref=v1.0.0"
 
   count_subnet = "3"
+  cidr_blocks = "${var.cidr_blocks}"
 
   # Tags
-  prefix = "${var.prefix}"
   environment = "${var.environment}"
   type = "${var.type}"
   project = "${var.project}"
