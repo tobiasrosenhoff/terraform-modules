@@ -14,7 +14,7 @@ module "aws-3tier-infrastructure" {
   count_subnet = "3"
 
   subnet_cidr_blocks = "${var.subnet_cidr_blocks}"
-  vpc_cidr = "10.128.0.0/16"
+  vpc_cidr = "${var.vpc_cidr}"
 
   # Tags
   environment = "${var.environment}"
