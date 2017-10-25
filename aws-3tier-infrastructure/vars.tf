@@ -4,7 +4,7 @@ variable "vpc_cidr" {}
 
 # CIDR blocks for public and private subnets
 # ---------------------------------------------------------
-variable "cidr_blocks" {
+variable "subnet_cidr_blocks" {
   type = "map"
 }
 

@@ -10,7 +10,7 @@ module "aws-3tier-infrastructure" {
   source = "git::git@github.com:tobiasrosenhoff/terraform-modules.git//aws-3tier-infrastructure?ref=v1.0.0"
 
   count_subnet = "3"
-  cidr_blocks = "${var.cidr_blocks}"
+  subnet_cidr_blocks = "${var.subnet_cidr_blocks}"
 
   # Tags
   environment = "${var.environment}"
@@ -22,7 +22,7 @@ module "aws-3tier-infrastructure" {
 
 **variables.tf**
 ```
-variable "cidr_blocks" {
+variable "subnet_cidr_blocks" {
   default = {
     public_zone0 = "10.128.1.0/24"
     public_zone1 = "10.128.2.0/24"

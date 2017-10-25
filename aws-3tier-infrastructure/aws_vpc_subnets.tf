@@ -7,7 +7,7 @@ data "aws_availability_zones" "all" {}
 resource "aws_subnet" "public-subnet" {
   count = "${var.count_subnet}"
   vpc_id = "${aws_vpc.default.id}"
-  cidr_block = "${lookup(var.cidr_blocks, format("public_zone%d", count.index))}"
+  cidr_block = "${lookup(var.subnet_cidr_blocks, format("public_zone%d", count.index))}"
   availability_zone = "${element(data.aws_availability_zones.all.names, count.index)}"
 
   tags {
@@ -22,7 +22,7 @@ resource "aws_subnet" "public-subnet" {
 resource "aws_subnet" "private-subnet" {
   count = "${var.count_subnet}"
   vpc_id = "${aws_vpc.default.id}"
-  cidr_block = "${lookup(var.cidr_blocks, format("private_zone%d", count.index))}"
+  cidr_block = "${lookup(var.subnet_cidr_blocks, format("private_zone%d", count.index))}"
   availability_zone = "${element(data.aws_availability_zones.all.names, count.index)}"
 
   tags {
