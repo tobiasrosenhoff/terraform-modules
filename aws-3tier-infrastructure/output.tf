@@ -21,3 +21,11 @@ output "aws_route_table_id_default" {
 output "aws_vpc_cidr" {
   value = "${aws_vpc.default.cidr_block}"
 }
+
+output "aws_nat_gateway_id" {
+  value = "${aws_nat_gateway.default.id}"
+}
+
+output "aws_internet_gateway_id" {
+  value = "${aws_internet_gateway.default.id}"
+}
